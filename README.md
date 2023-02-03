@@ -1,13 +1,16 @@
 # Create a Custom DataGridColumn in MAUI DataGrid
 In.NET [MAUI DataGrid](https://www.syncfusion.com/maui-controls/maui-datagrid) (SfDataGrid) allows you to create custom [DataGridColumn](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridColumn.html) by following the below steps.
 
-1. Create a new class by inheriting from the DataGridColumn. You must specify the [DataGridColumn.CellType](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridColumn.html#Syncfusion_Maui_DataGrid_DataGridColumn_CellType) property to create a custom column.
-2.	A corresponding [CellRenderer](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.SfDataGrid.html#Syncfusion_Maui_DataGrid_SfDataGrid_CellRenderers) class for the custom column must be created by customizing the [DataGridCellRenderer<D, E>](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridCellRenderer-2.html).
-3.	You should override the below methods in the created cell renderer class.
-	* [OnCreateDisplayUIView()](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridCellRenderer-2.html#Syncfusion_Maui_DataGrid_DataGridCellRenderer_2_OnCreateDisplayUIView) – to create the cell content to be loaded inside the grid cell.
-    * [OnInitializeDisplayView()](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridCellRenderer-2.html#Syncfusion_Maui_DataGrid_DataGridCellRenderer_2_OnInitializeDisplayView_Syncfusion_Maui_DataGrid_DataColumnBase__0_) – to initialize the cell content loaded inside the grid cell with required settings.
+**Step 1** - To create a custom column, you must inherit from the DataGridColumn class and specify the [DataGridColumn.CellType](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridColumn.html#Syncfusion_Maui_DataGrid_DataGridColumn_CellType) property.
 
-4.	Finally, you must add the custom column to the [SfDataGrid.Columns](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.SfDataGrid.html#Syncfusion_Maui_DataGrid_SfDataGrid_Columns) collection and its renderer in the [SfDataGrid.CellRenderers](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.SfDataGrid.html#Syncfusion_Maui_DataGrid_SfDataGrid_CellRenderers) collection.
+**Step 2** -	A Custom [CellRenderer](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.SfDataGrid.html#Syncfusion_Maui_DataGrid_SfDataGrid_CellRenderers) cclass must be created for the custom column by customizing the  [DataGridCellRenderer<D, E>](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridCellRenderer-2.html).
+
+**Step 3** -	In the created cell renderer class, you should override the following methods.
+	[OnCreateDisplayUIView()](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridCellRenderer-2.html#Syncfusion_Maui_DataGrid_DataGridCellRenderer_2_OnCreateDisplayUIView) – Generate the data to be placed in the grid cell.
+     [OnInitializeDisplayView()](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.DataGridCellRenderer-2.html#Syncfusion_Maui_DataGrid_DataGridCellRenderer_2_OnInitializeDisplayView_Syncfusion_Maui_DataGrid_DataColumnBase__0_) – To set up the cell content loaded in the grid cell with the necessary settings.
+ 
+
+**Step 4** -	You must add the custom column to the  [SfDataGrid.Columns](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.SfDataGrid.html#Syncfusion_Maui_DataGrid_SfDataGrid_Columns) collection and its renderer to  [SfDataGrid.CellRenderers](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.DataGrid.SfDataGrid.html#Syncfusion_Maui_DataGrid_SfDataGrid_CellRenderers) collection.
 
 For example, refer the below example in which a custom column is created for loading a Stepper control in the grid columns. A custom renderer class is written to load Stepper control as display.
 
